@@ -3,6 +3,7 @@ package com.imaginnovate.simplecounter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +44,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 	public void share(View v) {
 		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 		sharingIntent.setType("text/plain");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,  Integer.toString(count));
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Integer.toString(count));
 		startActivity(Intent.createChooser(sharingIntent,"Share using"));
 	}
